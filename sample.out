@@ -1,0 +1,55 @@
+                           System Health Information                            
+
+
+ Operating System Information                                                  
+
+Hostname : test
+Operating System : Red Hat Enterprise Linux Server 7.9 (Maipo)
+Kernel Version : 3.10.0-1160.76.1.el7.x86_64
+OS Architecture : 64 Bit OS
+System Uptime : up by 39 days 12:14 hours
+Current System Date & Time : Thu 22 Sep 2022 02:13:12 AM +03
+ 
+ CPU Information                                                                
+
+Machine CPU usage state  GREEN 
+
+Disk Usage On Mounted File System[s] / 0-85% = OK/HEALTHY,  85-95% = WARNING,  95-100% = CRITICAL
+ 
+/dev/mapper/rhel-lvtmp   /tmp   1%      ------  OK/HEALTHY  
+/dev/mapper/data-lvdata  /data  1%      ------  OK/HEALTHY  
+/dev/mapper/rhel-lvroot  /      7%      ------  OK/HEALTHY  
+/dev/mapper/rhel-lvhome  /home  11%     ------  OK/HEALTHY  
+/dev/mapper/rhel-lvvar   /var   15%     ------  OK/HEALTHY  
+/dev/mapper/rhel-usr     /usr   15%     ------  OK/HEALTHY  
+/dev/sda1                /boot  38%     ------  OK/HEALTHY  
+ 
+ Currently Outsource Mounted File System[s]                                     
+
+/dev/mapper/data-lvdata	/data	xfs
+
+ DISK SVCTM                                                                     
+ 
+ 14 ----- Warning!
+ 9 ----- Warning!
+ 8 ----- Warning!
+  
+ MEMORY Details                                                                 
+
+	total	used	free	available
+Mem:	39G	4.5G	26G	33G
+Swap:	19G	0B	19G
+
+ Checking For Services / RUNNING = OK/HEALTHY, FAILED = CRITICAL                
+
+couchbase-exporter.service  running     ------  OK/HEALTHY  
+couchbase-server.service    running     ------  OK/HEALTHY  
+node_exporter.service       running     ------  OK/HEALTHY  
+ 
+ Reboot Events                                                                  
+ 
+No reboot events are recorded.
+ 
+ Shutdown Events                                                                
+ 
+No shutdown events are recorded.
