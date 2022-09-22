@@ -12,7 +12,7 @@ CPU_S=$(mpstat |tail -n2| sed -re 's/[ ]+/\t/g' |cut -f4,6,7,13| sed '1d')
 CPU_STATE_S=$(echo -e "$CPU_S"| awk '{ if ($1 > 90 || $2 > 90 || $3 > 90 || $4 < 10 ) { print "RED" } else { print "GREEN"} }')
 SERVICE_S=$(systemctl --all --type service | grep -E 'couchbase|mongod|postgresql|ambari-server|ambari-agent' | awk -v pat="$SERVICE" '$0 ~ pat {sub(/[^\x01-\x7f]+/, ""); print}' | awk '{print $1,$4}' | column -t)
 SVCTM_S=$(sar -d 2 5 | grep -i Average | sed -re 's/[ ]+/\t/g' |cut -f9 | sed '1d' | awk '{ if($1 >= 8){ print $1}}')
-MOUNT=$(mount|egrep -iw "xfs|nfs"|grep -v "loop"|sort -u -t' ' -k1,2| column -t| grep -i 'THYDBA_BACKUP\|data\|backup' | sed -re 's/[ ]+/\t/g' |cut -f1,3,5)
+MOUNT=$(mount|egrep -iw "xfs|nfs"|grep -v "loop"|sort -u -t' ' -k1,2| column -t| grep -i 'BACKUP\|data\|backup' | sed -re 's/[ ]+/\t/g' |cut -f1,3,5)
 FS_USAGE=$(df -PThl -x tmpfs -x iso9660 -x devtmpfs -x squashfs|awk '!seen[$1]++'|sort -k6n|tail -n +2)
 IUSAGE=$(df -iPThl -x tmpfs -x iso9660 -x devtmpfs -x squashfs|awk '!seen[$1]++'|sort -k6n|tail -n +2)
 
